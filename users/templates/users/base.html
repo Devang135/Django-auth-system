@@ -23,8 +23,8 @@
             <div class="navbar-nav">
               <button class="btn btn-outline-success me-2" type="button">Sign Up</button>
               <button class="btn btn-outline-success me-2" type="button">Log In</button>
+
               <button class="btn btn-outline-secondary" type="button">Log Out</button>
-              
             </div>
             
           </div>
@@ -34,6 +34,14 @@
     </header>
 
       <div>
+        <div>
+          <div class="container">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{message.tags}}">{{message}}</div>
+            {% endfor %}
+          {% endif %}
+          </div>
         {% block content %}
         {% endblock content %}
       </div>
