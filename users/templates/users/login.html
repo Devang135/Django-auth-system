@@ -3,12 +3,12 @@
 {% load static %}
 
 {% block content %}
-
+<div class="container">
 <form action="" method =POST>
     {% csrf_token %}
     <h3>Sign In Now </h3>
     {{form|crispy}}
     <button type="submit" class="btn btn-primary">Sign In</button>
   </form>
-
+</div>
 {% endblock%}

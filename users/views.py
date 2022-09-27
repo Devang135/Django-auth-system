@@ -1,9 +1,11 @@
 from contextlib import redirect_stderr
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
+from django.urls import reverse
+
 
 
 
@@ -22,3 +24,11 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request,'users/register.html',{'form':form})
+
+def profile(request):
+    return render(request,'users/profile.html')
+
+
+def logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('users/home.html'))
